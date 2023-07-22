@@ -8,22 +8,22 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "agenda")
+@Table(name = "schedule")
 @Getter @Setter
-public class AgendaEntity implements Serializable {
+public class ScheduleEntity implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String descricao;
+  private String description;
 
-  @Column(name = "dh_horario")
-  private LocalDateTime dhHorario;
+  @Column(name = "dh_time")
+  private LocalDateTime dhTime;
 
-  @Column(name = "dh_criacao")
-  private LocalDateTime dhCriacao;
+  @Column(name = "dh_creation")
+  private LocalDateTime dhCreation;
 
   @ManyToOne
-  private PacienteEntity pacienteEntity;
+  private PatientEntity patientEntity;
 }

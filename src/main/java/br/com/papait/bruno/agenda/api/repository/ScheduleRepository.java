@@ -1,9 +1,9 @@
 package br.com.papait.bruno.agenda.api.repository;
 
-import br.com.papait.bruno.agenda.api.domain.entity.PacienteEntity;
+import br.com.papait.bruno.agenda.api.domain.entity.ScheduleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PacienteRepository extends JpaRepository<PacienteEntity, Long> {
+public interface ScheduleRepository extends JpaRepository<ScheduleEntity, Long> {
 }

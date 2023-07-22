@@ -7,18 +7,18 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "paciente")
+@Table(name = "patient")
 @Getter @Setter
-public class PacienteEntity implements Serializable {
+public class PatientEntity implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @Column(length = 50)
-  private String nome;
+  private String name;
 
   @Column(length = 100)
-  private String sobrenome;
+  private String surname;
 
   @Column(length = 100)
   private String email;
