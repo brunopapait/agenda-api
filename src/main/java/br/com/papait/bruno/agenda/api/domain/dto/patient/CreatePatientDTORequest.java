@@ -15,6 +15,8 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class CreatePatientDTORequest {
 
+  private Long id;
+
   @NotBlank(message = "Name is required")
   private String name;
   @NotBlank(message = "Surname is required")

@@ -14,7 +14,7 @@ import java.util.Objects;
 
 @Component
 @RequiredArgsConstructor
-public class CreatePatientUseCase {
+public class SavePatientUseCase {
 
   private final FindPatientByCpfUseCase findPatientByCpfUseCase;
   private final FindPatientByEmailUseCase findPatientByEmailUseCase;

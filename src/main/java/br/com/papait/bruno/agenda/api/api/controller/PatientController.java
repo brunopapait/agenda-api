@@ -2,10 +2,8 @@ package br.com.papait.bruno.agenda.api.api.controller;
 
 import br.com.papait.bruno.agenda.api.domain.dto.patient.CreatePatientDTORequest;
 import br.com.papait.bruno.agenda.api.domain.dto.patient.PatientDTOResponse;
-import br.com.papait.bruno.agenda.api.usecase.patient.CreatePatientUseCase;
-import br.com.papait.bruno.agenda.api.usecase.patient.DeletePatientByIdUseCase;
-import br.com.papait.bruno.agenda.api.usecase.patient.FindAllPatientUseCase;
-import br.com.papait.bruno.agenda.api.usecase.patient.FindPatientByIdUseCase;
+import br.com.papait.bruno.agenda.api.domain.dto.patient.UpdatePatientDTORequest;
+import br.com.papait.bruno.agenda.api.usecase.patient.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +18,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PatientController {
 
-  private final CreatePatientUseCase createPatientUseCase;
+  private final SavePatientUseCase createPatientUseCase;
   private final FindAllPatientUseCase findAllPatientUseCase;
   private final FindPatientByIdUseCase findPatientByIdUseCase;
   private final DeletePatientByIdUseCase deletePatientByIdUseCase;
+  private final UpdatePatientUseCase updatePatientUseCase;
 
   @PostMapping
   @Transactional
@@ -46,5 +45,11 @@ public class PatientController {
   public ResponseEntity<Void> deleteById(@PathVariable Long id) {
     this.deletePatientByIdUseCase.execute(id);
     return ResponseEntity.noContent().build();
+  }
+
+  @PutMapping("/{id}")
+  @Transactional
+  public ResponseEntity<PatientDTOResponse> update(@PathVariable Long id, @Valid @RequestBody UpdatePatientDTORequest updatePatientDTORequest) {
+    return ResponseEntity.ok(this.updatePatientUseCase.execute(id, updatePatientDTORequest));
   }
 }
