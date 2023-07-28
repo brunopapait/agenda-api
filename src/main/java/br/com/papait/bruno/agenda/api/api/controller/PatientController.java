@@ -3,6 +3,7 @@ package br.com.papait.bruno.agenda.api.api.controller;
 import br.com.papait.bruno.agenda.api.domain.dto.patient.CreatePatientDTORequest;
 import br.com.papait.bruno.agenda.api.domain.dto.patient.PatientDTOResponse;
 import br.com.papait.bruno.agenda.api.usecase.patient.CreatePatientUseCase;
+import br.com.papait.bruno.agenda.api.usecase.patient.DeletePatientByIdUseCase;
 import br.com.papait.bruno.agenda.api.usecase.patient.FindAllPatientUseCase;
 import br.com.papait.bruno.agenda.api.usecase.patient.FindPatientByIdUseCase;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,7 @@ public class PatientController {
   private final CreatePatientUseCase createPatientUseCase;
   private final FindAllPatientUseCase findAllPatientUseCase;
   private final FindPatientByIdUseCase findPatientByIdUseCase;
+  private final DeletePatientByIdUseCase deletePatientByIdUseCase;
 
   @PostMapping
   @Transactional
@@ -38,5 +40,11 @@ public class PatientController {
   @GetMapping("/{id}")
   public ResponseEntity<PatientDTOResponse> findById(@PathVariable Long id) {
     return ResponseEntity.ok(this.findPatientByIdUseCase.execute(id));
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+    this.deletePatientByIdUseCase.execute(id);
+    return ResponseEntity.noContent().build();
   }
 }
