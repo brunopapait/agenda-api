@@ -1,0 +1,1 @@
+ALTER TABLE agenda RENAME TO schedule;

@@ -25,5 +25,6 @@ public class ScheduleEntity implements Serializable {
   private LocalDateTime dhCreation;
 
   @ManyToOne
+  @JoinColumn(name = "patient_id", referencedColumnName = "id")
   private PatientEntity patientEntity;
 }
