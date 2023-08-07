@@ -3,7 +3,6 @@ package br.com.papait.bruno.agenda.api.api.controller;
 import br.com.papait.bruno.agenda.api.domain.dto.schedule.CreateScheculeDTORequest;
 import br.com.papait.bruno.agenda.api.domain.dto.schedule.ScheduleDTO;
 import br.com.papait.bruno.agenda.api.domain.dto.schedule.ScheduleDTOResponse;
-import br.com.papait.bruno.agenda.api.domain.mapper.schedule.ScheduleMapper;
 import br.com.papait.bruno.agenda.api.usecase.patient.FindPatientByIdUseCase;
 import br.com.papait.bruno.agenda.api.usecase.schedule.CreateScheduleUseCase;
 import lombok.RequiredArgsConstructor;
