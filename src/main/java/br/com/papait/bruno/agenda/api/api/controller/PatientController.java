@@ -18,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PatientController {
 
-  private final SavePatientUseCase createPatientUseCase;
+  private final SavePatientUseCase savePatientUseCase;
   private final FindAllPatientUseCase findAllPatientUseCase;
   private final FindPatientByIdUseCase findPatientByIdUseCase;
   private final DeletePatientByIdUseCase deletePatientByIdUseCase;
@@ -28,7 +28,7 @@ public class PatientController {
   @Transactional
   public ResponseEntity<PatientDTOResponse> create(
       @Valid @RequestBody CreatePatientDTORequest createPatientDTORequest) {
-    return ResponseEntity.status(HttpStatus.CREATED).body(this.createPatientUseCase.execute(createPatientDTORequest));
+    return ResponseEntity.status(HttpStatus.CREATED).body(this.savePatientUseCase.execute(createPatientDTORequest));
   }
 
   @GetMapping
