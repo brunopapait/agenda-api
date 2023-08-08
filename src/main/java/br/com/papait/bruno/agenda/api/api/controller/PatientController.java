@@ -1,10 +1,12 @@
 package br.com.papait.bruno.agenda.api.api.controller;
 
 import br.com.papait.bruno.agenda.api.domain.dto.patient.CreatePatientDTORequest;
+import br.com.papait.bruno.agenda.api.domain.dto.patient.PatientDTO;
 import br.com.papait.bruno.agenda.api.domain.dto.patient.PatientDTOResponse;
 import br.com.papait.bruno.agenda.api.domain.dto.patient.UpdatePatientDTORequest;
 import br.com.papait.bruno.agenda.api.usecase.patient.*;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,12 +25,14 @@ public class PatientController {
   private final FindPatientByIdUseCase findPatientByIdUseCase;
   private final DeletePatientByIdUseCase deletePatientByIdUseCase;
   private final UpdatePatientUseCase updatePatientUseCase;
+  private final ModelMapper modelMapper;
 
   @PostMapping
   @Transactional
   public ResponseEntity<PatientDTOResponse> create(
       @Valid @RequestBody CreatePatientDTORequest createPatientDTORequest) {
-    return ResponseEntity.status(HttpStatus.CREATED).body(this.savePatientUseCase.execute(createPatientDTORequest));
+    var patientDto = this.modelMapper.map(createPatientDTORequest, PatientDTO.class);
+    return ResponseEntity.status(HttpStatus.CREATED).body(this.savePatientUseCase.execute(patientDto));
   }
 
   @GetMapping
