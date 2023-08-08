@@ -4,7 +4,6 @@ import br.com.papait.bruno.agenda.api.domain.dto.schedule.ScheduleDTO;
 import br.com.papait.bruno.agenda.api.domain.dto.schedule.ScheduleDTOResponse;
 import br.com.papait.bruno.agenda.api.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityNotFoundException;
@@ -15,7 +14,6 @@ public class UpdateScheduleUseCase {
 
   private final ScheduleRepository scheduleRepository;
   private final SaveScheduleUseCase saveScheduleUseCase;
-  private final ModelMapper modelMapper;
 
   public ScheduleDTOResponse execute(ScheduleDTO scheduleDTO) {
     this.scheduleRepository.findById(scheduleDTO.getId())
