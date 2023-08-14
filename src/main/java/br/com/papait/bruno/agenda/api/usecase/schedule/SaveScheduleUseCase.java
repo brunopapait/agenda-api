@@ -29,8 +29,6 @@ public class SaveScheduleUseCase {
     var scheduleEntity = this.modelMapper.map(scheduleDTO, ScheduleEntity.class);
 
     scheduleEntity = this.agendaRepository.save(scheduleEntity);
-
-    var scheduleDtoResponse = this.modelMapper.map(scheduleEntity, ScheduleDTOResponse.class);
-    return scheduleDtoResponse;
+    return this.modelMapper.map(scheduleEntity, ScheduleDTOResponse.class);
   }
 }
