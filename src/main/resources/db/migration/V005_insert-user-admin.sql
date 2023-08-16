@@ -1,0 +1,1 @@
+INSERT INTO users(id, name, username, password) VALUES (nextval("user_id_seq"), "admin", "admin", "$2a$08$uIzJc5BM1RLmF/fPW8lZ2.Z8D3t4J5Gn/4SqtTFGRU0cyo6tfm11G");
