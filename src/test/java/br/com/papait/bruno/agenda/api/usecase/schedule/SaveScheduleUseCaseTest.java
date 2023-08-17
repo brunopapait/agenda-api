@@ -24,18 +24,18 @@ import java.time.LocalDateTime;
 public class SaveScheduleUseCaseTest {
 
   @InjectMocks
-  SaveScheduleUseCase saveScheduleUseCase;
+  private SaveScheduleUseCase saveScheduleUseCase;
 
   @Mock
-  CheckScheduleDateTimeAppointmentAvailableUseCase checkScheduleDateTimeAppointmentAvailableUseCase;
+  private CheckScheduleDateTimeAppointmentAvailableUseCase checkScheduleDateTimeAppointmentAvailableUseCase;
   @Mock
-  ScheduleRepository agendaRepository;
+  private ScheduleRepository agendaRepository;
 
   @Mock
-  ModelMapper modelMapper;
+  private ModelMapper modelMapper;
 
   @Captor
-  ArgumentCaptor<ScheduleEntity> scheduleCaptor;
+  private ArgumentCaptor<ScheduleEntity> scheduleCaptor;
 
   @Test
   @DisplayName("Deve salvar o agendamento com sucesso")
