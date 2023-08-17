@@ -5,7 +5,6 @@ import br.com.papait.bruno.agenda.api.domain.dto.schedule.ScheduleDTOResponse;
 import br.com.papait.bruno.agenda.api.domain.entity.ScheduleEntity;
 import br.com.papait.bruno.agenda.api.domain.exception.ScheduleDateTimeAppointmentNotAvailableException;
 import br.com.papait.bruno.agenda.api.repository.ScheduleRepository;
-import br.com.papait.bruno.agenda.api.usecase.patient.FindPatientByIdUseCase;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component;
 public class SaveScheduleUseCase {
 
   private final ScheduleRepository agendaRepository;
-  private final FindPatientByIdUseCase findPatientByIdUseCase;
   private final CheckScheduleDateTimeAppointmentAvailableUseCase checkScheduleDateTimeAppointmentAvailableUseCase;
   private final ModelMapper modelMapper;
 
@@ -29,6 +27,7 @@ public class SaveScheduleUseCase {
     var scheduleEntity = this.modelMapper.map(scheduleDTO, ScheduleEntity.class);
 
     scheduleEntity = this.agendaRepository.save(scheduleEntity);
+    scheduleEntity.setCreationTime();
     return this.modelMapper.map(scheduleEntity, ScheduleDTOResponse.class);
   }
 }
