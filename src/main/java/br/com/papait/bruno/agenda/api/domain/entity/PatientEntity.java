@@ -1,6 +1,8 @@
 package br.com.papait.bruno.agenda.api.domain.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +11,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "patient")
 @Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class PatientEntity implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

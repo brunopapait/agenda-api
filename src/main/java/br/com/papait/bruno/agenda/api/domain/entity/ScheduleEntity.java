@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "schedule")
-@Getter @Setter
+@Getter
+@Setter
 public class ScheduleEntity implements Serializable {
 
   @Id
@@ -25,5 +26,11 @@ public class ScheduleEntity implements Serializable {
   private LocalDateTime dhCreation;
 
   @ManyToOne
+  @JoinColumn(name = "patient_id", referencedColumnName = "id")
   private PatientEntity patientEntity;
+
+  @PrePersist
+  public void setCreationTime() {
+    this.dhCreation = LocalDateTime.now();
+  }
 }
