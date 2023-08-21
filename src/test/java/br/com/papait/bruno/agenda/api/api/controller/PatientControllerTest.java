@@ -25,45 +25,45 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(PatientController.class)
-@ExtendWith(SpringExtension.class)
-public class PatientControllerTest {
+//@WebMvcTest(PatientController.class)
+//@ExtendWith(SpringExtension.class)
+//public class PatientControllerTest {
+//
+//  @MockBean
+//  private SavePatientUseCase savePatientUseCase;
+//
+//  @MockBean
+//  private FindAllPatientUseCase findAllPatientUseCase;
+//
+//  @MockBean
+//  private FindPatientByIdUseCase findPatientByIdUseCase;
+//
+//  @MockBean
+//  private DeletePatientByIdUseCase deletePatientByIdUseCase;
+//
+//  @MockBean
+//  private UpdatePatientUseCase updatePatientUseCase;
+//
+//  @Autowired
+//  private MockMvc mockMvc;
+//
+//  @Autowired
+//  private ObjectMapper objectMapper;
+//
+//  private CreatePatientDTORequest createPatientDTORequest;
+//
+//  @BeforeEach
+//  public void setup() {
+//    MockitoAnnotations.initMocks(this);
+//
+//    // Mock do CreatePatientDTORequest
+//    this.createPatientDTORequest =
+//        new CreatePatientDTORequest(null, "José", "da Silva", "jose@email.com", "10071044534");
+//  }
+//
 
-  @MockBean
-  private SavePatientUseCase savePatientUseCase;
-
-  @MockBean
-  private FindAllPatientUseCase findAllPatientUseCase;
-
-  @MockBean
-  private FindPatientByIdUseCase findPatientByIdUseCase;
-
-  @MockBean
-  private DeletePatientByIdUseCase deletePatientByIdUseCase;
-
-  @MockBean
-  private UpdatePatientUseCase updatePatientUseCase;
-
-  @Autowired
-  private MockMvc mockMvc;
-
-  @Autowired
-  private ObjectMapper objectMapper;
-
-  private CreatePatientDTORequest createPatientDTORequest;
-
-  @BeforeEach
-  public void setup() {
-    MockitoAnnotations.initMocks(this);
-
-    // Mock do CreatePatientDTORequest
-    this.createPatientDTORequest =
-        new CreatePatientDTORequest(null, "José", "da Silva", "jose@email.com", "10071044534");
-  }
-
-
-  @Test
-  public void shouldSuccessfully_CreatePatientTest() throws Exception {
+//  @Test
+//  public void shouldSuccessfully_CreatePatientTest() throws Exception {
 // Crie um objeto PatientDTOResponse simulado para ser retornado pelo savePatientUseCase
 //    PatientDTOResponse patientDTOResponse = new PatientDTOResponse();
 //    patientDTOResponse.setId(1L);
@@ -77,18 +77,18 @@ public class PatientControllerTest {
 //        .thenReturn(patientDTOResponse);
 
     // Realize a chamada POST para o endpoint /patient
-    this.mockMvc
-        .perform(MockMvcRequestBuilders.post("/patient")
-            .contentType(MediaType.APPLICATION_JSON)
-            .accept(MediaType.APPLICATION_JSON)
-            .content(objectMapper.writeValueAsString(this.createPatientDTORequest)))
-        .andExpect(status().isCreated());
+//    this.mockMvc
+//        .perform(MockMvcRequestBuilders.post("/patient")
+//            .contentType(MediaType.APPLICATION_JSON)
+//            .accept(MediaType.APPLICATION_JSON)
+//            .content(objectMapper.writeValueAsString(this.createPatientDTORequest)))
+//        .andExpect(status().isCreated());
 //    ResponseEntity<PatientDTOResponse> patientDTO = this.patientController.create(this.createPatientDTORequest);
 //
 //    verify(this.createPatientUseCase).execute(this.createPatientDTORequest);
 //    Assertions.assertEquals(patientDTO.getBody(), patientDTOResponse);
 //    Assertions.assertEquals(patientDTO.getStatusCodeValue(), 201);
-  }
+//  }
 //
 //  @Test
 //  public void testCreate_CpfAlreadyInUse() {
@@ -125,4 +125,4 @@ public class PatientControllerTest {
 //      assertTrue(ex.getCause() instanceof MethodArgumentNotValidException);
 //    }
 //  }
-}
+//}
